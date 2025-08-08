@@ -25,7 +25,11 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.use(cors({
-  origin: 'http://localhost:8081',
+  origin: [
+    'http://localhost:8081',     // Para desarrollo local
+    'http://192.168.0.9:8081',   // Para acceder desde otro dispositivo en tu red
+    'https://tour-reservation-management-system.vercel.app',  // El dominio real del frontend en producción
+  ],
   credentials: true,
 }));
 
